@@ -7,6 +7,6 @@ public class Main {
     private final String password = "testGitvGuard4an";
 
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        System.out.println("Hello world!!");
     }
 }
