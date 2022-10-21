@@ -38,6 +38,9 @@ jobs:
       - name: 2. Run maven test
         uses: xlui/action-maven-cli@master
         with:
+          java-version: '18'
+          distribution: 'temurin'
+          cache: maven
           lifecycle: 'clean test'
 #  build:
 #    needs: scanning
