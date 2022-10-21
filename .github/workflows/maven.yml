@@ -39,7 +39,7 @@ jobs:
           java-version: 18
 
       - name: Build project with Maven
-        run: mvn -B clean test --file pom.xml'
+        run: mvn -B clean test --file pom.xml
           
 #  build:
 #    needs: scanning
