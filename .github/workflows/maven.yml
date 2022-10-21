@@ -25,6 +25,20 @@ jobs:
             GITHUB_PULL_BASE_SHA: ${{ github.event.pull_request.base.sha }}
             GITHUB_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
             GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
+            
+  test:
+    needs: scanning
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout code
+        uses: actions/checkout@v2
+
+      - name: 2. Run maven test
+        uses: xlui/action-maven-cli@master
+        with:
+          lifecycle: 'clean test'
 #  build:
 #    needs: scanning
 #    runs-on: ubuntu-latest
