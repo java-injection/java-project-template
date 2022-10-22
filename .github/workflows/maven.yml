@@ -56,6 +56,26 @@ jobs:
       - name: Build project with Maven
         run: mvn -B package --file pom.xml -DskipTests
 
+  quality-gate:
+    needs: build
+    name: Quality Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cache SonarQube packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Pcoverage -Dsonar.projectKey=badge-pool -DskipTests
+
           
 #  build:
 #    needs: scanning
