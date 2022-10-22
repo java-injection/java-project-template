@@ -32,7 +32,8 @@ class PersonTest {
 
     @Test
     void getSurname() {
-        //si2
+        Person p = new Person("Luca","Coraci");
+        assertEquals("Coraci",p.getSurname());
     }
 
     @Test
