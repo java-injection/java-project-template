@@ -28,7 +28,7 @@ class PersonTest {
         Person p = new Person("Luca","Coraci");
         assertEquals("Luca",p.getName());
         p.setName("Alfonso");
-        assertEquals("Alfons2o",p.getName());
+        assertEquals("Alfonso",p.getName());
     }
 
     @Test
