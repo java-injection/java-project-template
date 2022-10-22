@@ -36,5 +36,9 @@ class PersonTest {
 
     @Test
     void setSurname() {
+        Person p = new Person("Luca","Coraci");
+        assertEquals("Coraci",p.getSurname());
+        p.setSurname("Rossi");
+        assertEquals("Rossi",p.getSurname());
     }
 }
