@@ -10,6 +10,7 @@ class PersonTest {
 
     @BeforeEach
     void setUp() {
+        //ok finale
     }
 
     @AfterEach
@@ -32,9 +33,15 @@ class PersonTest {
 
     @Test
     void getSurname() {
+        Person p = new Person("Luca","Coraci");
+        assertEquals("Coraci",p.getSurname());
     }
 
     @Test
     void setSurname() {
+        Person p = new Person("Luca","Coraci");
+        assertEquals("Coraci",p.getSurname());
+        p.setSurname("Rossi");
+        assertEquals("Rossi",p.getSurname());
     }
 }
