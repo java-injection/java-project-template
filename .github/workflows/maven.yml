@@ -90,8 +90,8 @@ jobs:
 
   publish:
     needs: build
-      name: Maven Github Deploy
-      runs-on: ubuntu-latest
+    name: Maven Github Deploy
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
